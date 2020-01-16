@@ -40,6 +40,7 @@ def dict_to_df(clear_prepared_list, date_1, date_2, date_3):
         # print('new row', prepared_row)
         index_value += 1
 
+
         # добавляем подготовленную строку в df
         df_with_stats.loc[index_value] = prepared_row
 
