@@ -1,6 +1,7 @@
 import requests
 import json
 import pandas as pd
+from def_search_engine_detection import search_engine_detection
 
 headers = {
     'Authorization': 'Token 28db9a3c44bb37307afcbccea4276b0dfd7d3893',
@@ -10,16 +11,12 @@ headers = {
 site_id = '1038110' # Для теста
 ########### site_id = str(input('\nВведите id проекта (смотрим в трекере) = '))
 
-# Какие поисковые системы используются в проекте
-print('Поисковые системы проекта {}'.format(site_id))
-search_engines_list = requests.get('https://api4.seranking.com/sites/{}/search-engines'.format(site_id), headers=headers)
-search_engines = search_engines_list.json()
-# Введите site_engine_id = 
-for i in search_engines:
-    print('ПС 1: site_engine_id =', i['site_engine_id'], '; search_engine_id =', i['search_engine_id'])
 
-site_engine_id = '1157702'
-######### site_engine_id = str(input('Введите site_engine_id = '))
+
+# Определение и выбор поисковых систем, используюемых в проекте
+site_engine_id = search_engine_detection(site_id, headers)
+
+
 
 # print('Исторические даты проекта {}'.format(site_id))
 historical_dates = requests.get('https://api4.seranking.com/sites/{}/historicalDates'.format(site_id), headers=headers)
@@ -28,21 +25,26 @@ last90 = historical_dates['90days']
 current = historical_dates['current']
 
 
+
 site_positions_json = requests.get('https://api4.seranking.com/sites/{}/positions?date_from={}&date_to={}&site_engine_id={}'.format(site_id, last90, current, site_engine_id), headers=headers)
 site_positions = site_positions_json.json()
+
+
 
 # В данный момент данные о позициях выглядят типа [{key: data ...}] - словарь в списке. Достнем его оттуда с помощью цикла for
 # print('Тип переменной', type(site_positions))
 for i in site_positions:
     site_positions = i
-
 # print(type(site_positions))
 # Ура
+
+
 
 # Полный датасет c позициями, у которого колонки говно
 data = pd.DataFrame(site_positions, columns=site_positions.keys())
 # нам нужна только колонка keywords
 keywords_df = pd.DataFrame(data['keywords'])
+
 
 
 # Список, в который будем собирать необходимые значения с помощью цикла
@@ -137,7 +139,6 @@ from def_dict_to_df import dict_to_df
 ready_df = dict_to_df(clear_prepared_list, date_1, date_2, date_3)
 ready_df.to_excel("output-positions.xlsx")
 
-
 # Подготовка таблицы c ТОПами
 '''
 from def_tops_percent_count import tops_percent_count
@@ -147,8 +148,10 @@ df_with_stats_of_top.to_excel("output-positions.xlsx")
 
 
 # Подготовка таблицы с видимостью
-# from def_visibility_percent_count import visibility_percent_count
-# df_with_stats_of_visibility = visibility_percent_count(ready_df, date_1, date_2, date_3)
+'''
+from def_visibility_percent_count import visibility_percent_count
+df_with_stats_of_visibility = visibility_percent_count(ready_df, date_1, date_2, date_3)
+'''
 
 
 
