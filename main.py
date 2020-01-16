@@ -139,9 +139,16 @@ ready_df.to_excel("output-positions.xlsx")
 
 
 # Подготовка таблицы c ТОПами
+'''
 from def_tops_percent_count import tops_percent_count
 df_with_stats_of_top = tops_percent_count(ready_df, date_1, date_2, date_3)
 df_with_stats_of_top.to_excel("output-positions.xlsx")
+'''
+
+
+# Подготовка таблицы с видимостью
+# from def_visibility_percent_count import visibility_percent_count
+# df_with_stats_of_visibility = visibility_percent_count(ready_df, date_1, date_2, date_3)
 
 
 
