@@ -135,13 +135,13 @@ for i in prepared_list:
 # Подготовка таблицы c позициями
 from def_dict_to_df import dict_to_df
 ready_df = dict_to_df(clear_prepared_list, date_1, date_2, date_3)
-# Вывод таблицы с позициями
 ready_df.to_excel("output-positions.xlsx")
 
 
 # Подготовка таблицы c ТОПами
 from def_tops_percent_count import tops_percent_count
-positions_df = tops_percent_count(ready_df, date_1, date_2, date_3)
+df_with_stats_of_top = tops_percent_count(ready_df, date_1, date_2, date_3)
+df_with_stats_of_top.to_excel("output-positions.xlsx")
 
 
 
