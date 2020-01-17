@@ -10,12 +10,12 @@ from modules.api_autorization import api_autorization
 from modules.date_validation import date_validation
 from modules.data_parser import data_parser
 from modules.data_selector import data_selector
+from modules.project_selector import project_selector
 
 
 headers = api_autorization() # Проверка API ключа, авторизация
 
-site_id = '1038110' # Для теста
-# site_id = str(input('\nВведите id проекта (смотрим в трекере) = ')) # Ввод id проекта
+site_id = project_selector() # Выбор проекта
 
 site_engine_id = search_engine_detection(site_id, headers) # Выбор поисковых систем, используюемых в проекте
 

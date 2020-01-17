@@ -22,7 +22,7 @@ def search_engine_detection(site_id, headers):
     
     # Выбор ПС для пользователя
     while True:
-        search_engine_detection_user_input = input('\nВыберите ПС (вписать цифру): \n0) Google;\n1) Yandex\nПС = ')
+        search_engine_detection_user_input = input('\nВыберите ПС (вписать цифру): \n0) Google;\n1) Yandex\n=>')
         if search_engine_detection_user_input == '0':
             print('Выбрана ПС Google')
             site_engine_id = google_site_engine_id
