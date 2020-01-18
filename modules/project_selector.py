@@ -16,7 +16,7 @@ def project_selector():
             for i in list_of_projects:
                 i[1] = re.sub(r"\n", "", i[1])
 
-            print(list_of_projects)
+            # print(list_of_projects)
             
             # Выводим список проектов
             counter_for_project_list = 0
@@ -24,7 +24,7 @@ def project_selector():
             for project in list_of_projects:
                 counter_for_project_list += 1
                 project.append(counter_for_project_list)
-                print(project[2], ') {}'.format(project[1]))
+                print('{}) {}'.format(project[2], project[1]))
             
             while True:
                 try:
