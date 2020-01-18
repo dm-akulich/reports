@@ -1,3 +1,5 @@
+# - *- coding: utf- 8 - *-
+
 import pandas as pd
 import numpy as np
 import ast
@@ -52,20 +54,20 @@ def tops_percent_count(ready_df, date_1, date_2, date_3):
         row_of_top_5 = list(['ТОП-5', ])
         how_much_top5_1 = 0
         for i in ready_df.iloc[:, 2]: # Итерация по первому столбцу с датами
-            if i <= 5:
+            if i in range(1, 6):
                 how_much_top5_1 += 1
         percent_of_top_5 = how_much_top5_1 / len(ready_df.iloc[:, 0]) * 100
         row_of_top_5.append(round(percent_of_top_5, 3))
         how_much_top5_2 = 0
         for i in ready_df.iloc[:, 3]: # Итерация по второму столбцу с датами
-            if i <= 5:
+            if i in range(1, 6):
                 how_much_top5_2 += 1
         percent_of_top_5 = how_much_top5_2 / len(ready_df.iloc[:, 0]) * 100
         row_of_top_5.append(round(percent_of_top_5, 3))
 
         how_much_top5_3 = 0
         for i in ready_df.iloc[:, 4]: # Итерация по третьему столбцу с датами
-            if i <= 5:
+            if i in range(1, 6):
                 how_much_top5_3 += 1
         percent_of_top_5 = how_much_top5_3 / len(ready_df.iloc[:, 0]) * 100
         row_of_top_5.append(round(percent_of_top_5, 3))
@@ -80,20 +82,20 @@ def tops_percent_count(ready_df, date_1, date_2, date_3):
         row_of_top_10 = list(['ТОП-10', ])
         how_much_top10_1 = 0
         for i in ready_df.iloc[:, 2]: # Итерация по первому столбцу с датами
-            if i <= 10:
+            if i in range(1, 11):
                 how_much_top10_1 += 1
         percent_of_top_10 = how_much_top10_1 / len(ready_df.iloc[:, 0]) * 100
         row_of_top_10.append(round(percent_of_top_10, 3))
         how_much_top10_2 = 0
         for i in ready_df.iloc[:, 3]: # Итерация по второму столбцу с датами
-            if i <= 10:
+            if i in range(1, 11):
                 how_much_top10_2 += 1
         percent_of_top_10 = how_much_top10_2 / len(ready_df.iloc[:, 0]) * 100
         row_of_top_10.append(round(percent_of_top_10, 3))
 
         how_much_top10_3 = 0
         for i in ready_df.iloc[:, 4]: # Итерация по третьему столбцу с датами
-            if i <= 10:
+            if i in range(1, 11):
                 how_much_top10_3 += 1
         percent_of_top_10 = how_much_top10_3 / len(ready_df.iloc[:, 0]) * 100
         row_of_top_10.append(round(percent_of_top_10, 3))

@@ -1,3 +1,5 @@
+# - *- coding: utf- 8 - *-
+
 import requests
 import json
 import pandas as pd
@@ -17,8 +19,9 @@ headers = api_autorization() # Проверка API ключа, авториза
 
 site_id = project_selector() # Выбор проекта
 
-site_engine_id = search_engine_detection(site_id, headers) # Выбор поисковых систем, используюемых в проекте
-
+search_engine_detection_return = search_engine_detection(site_id, headers) # Выбор поисковых систем, используюемых в проекте
+site_engine_id = search_engine_detection_return[0]
+search_engine_name = search_engine_detection_return[1]
 
 # print('Исторические даты проекта {}'.format(site_id))
 historical_dates = requests.get('https://api4.seranking.com/sites/{}/historicalDates'.format(site_id), headers=headers)
@@ -53,14 +56,13 @@ ready_df.to_excel("output-positions.xlsx")
 
 
 # Подготовка таблицы c ТОПами
-df_with_stats_of_top = tops_percent_count(ready_df, date_1, date_2, date_3)
-df_with_stats_of_top.to_excel("output-tops.xlsx")
+# df_with_stats_of_top = tops_percent_count(ready_df, date_1, date_2, date_3)
+# df_with_stats_of_top.to_excel("output-tops.xlsx")
 
 
 # Подготовка таблицы с видимостью
-'''
-df_with_stats_of_visibility = visibility_percent_count(ready_df, date_1, date_2, date_3)
-'''
+df_with_stats_of_visibility = visibility_percent_count(ready_df, date_1, date_2, date_3, search_engine_name)
+
 
 
 

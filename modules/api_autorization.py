@@ -1,12 +1,10 @@
+# - *- coding: utf- 8 - *-
+
 import requests
-
-
-# headers = {'Authorization': 'Token 28db9a3c44bb37307afcbccea4276b0dfd7d3893',}
-
 
 def api_autorization():
     while True:
-        f = open("api_key.txt", "r")
+        f = open(".api_key", "r")
         f = f.read()
         headers = {}
         headers['Authorization'] = 'Token ' + f
