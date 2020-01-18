@@ -35,7 +35,7 @@ def project_selector():
                             site_id = i[0]
                     break
                 except (ValueError, IndexError) :
-                    print('Упс. Необходимо ввести число из списка. Попробуйте еще раз')
+                    print('Необходимо ввести число из списка. Попробуйте еще раз')
             
             break
 
