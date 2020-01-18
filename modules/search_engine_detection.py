@@ -7,7 +7,7 @@ import requests
 
 
 def search_engine_detection(site_id, headers):
-    print('Поисковые системы проекта {}'.format(site_id))
+    print('\nПоисковые системы проекта {}'.format(site_id))
     search_engines_list = requests.get('https://api4.seranking.com/sites/{}/search-engines'.format(site_id), headers=headers)
     search_engines = search_engines_list.json()
 
@@ -36,4 +36,9 @@ def search_engine_detection(site_id, headers):
     
     return site_engine_id
     
+
+
+
+
+
 
