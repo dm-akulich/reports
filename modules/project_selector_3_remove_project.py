@@ -22,8 +22,23 @@ def project_selector_3_remove_project(headers):
         project.append(counter_for_project_list)
         print('{}) {}'.format(project[2], project[1]))
 
-    remove = input('=>')
-    print('Этот функционал еще не реализован')
+    # print('Список с которым работаем: ', list_of_projects)
+    while True:
+        try:
+            user_input = input('=>')
+            remove_item = int(user_input) - 1
+            del list_of_projects[remove_item]
+            print('Проект удален из списка.')
+            break
+        except ValueError:
+            print('Введено что-то не то. Попробуйте еще раз.')
     
+    # Запись в файл
+    f = open(".project_list", "w")
+    for item in list_of_projects:
+        f.write('{}:{}\n'.format(item[0], item[1]))
+
+    f.close()
+
     # Этот функционал еще не реализован
-    pass
+    return print('Список проектов обновлен.')
