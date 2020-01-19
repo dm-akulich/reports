@@ -17,6 +17,7 @@ from modules.project_selector import project_selector
 
 headers = api_autorization() # Проверка API ключа, авторизация
 
+
 site_id = project_selector(headers) # Выбор проекта
 
 search_engine_detection_return = search_engine_detection(site_id, headers) # Выбор поисковых систем, используюемых в проекте
@@ -59,17 +60,17 @@ clear_prepared_list = data_selector(date_1, date_2, date_3, prepared_list)
 
 # Подготовка таблицы c позициями
 ready_df = dict_to_df(clear_prepared_list, date_1, date_2, date_3)
-ready_df.to_excel("{}-output-positions.xlsx".format(search_engine_name))
+ready_df.to_excel("{}-{}-output-positions.xlsx".format(site_id, search_engine_name))
 
 
 # Подготовка таблицы c ТОПами
 df_with_stats_of_top = tops_percent_count(ready_df, date_1, date_2, date_3)
-df_with_stats_of_top.to_excel('{}-output-tops.xlsx'.format(search_engine_name))
+df_with_stats_of_top.to_excel('{}-{}-output-tops.xlsx'.format(site_id, search_engine_name))
 
 
 # Подготовка таблицы с видимостью
 df_with_stats_of_visibility = visibility_percent_count(ready_df, date_1, date_2, date_3, search_engine_name)
-df_with_stats_of_visibility.to_excel('{}-output-visibility.xlsx'.format(search_engine_name))
+df_with_stats_of_visibility.to_excel('{}-{}-output-visibility.xlsx'.format(site_id, search_engine_name))
 
 
 
