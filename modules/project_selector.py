@@ -6,7 +6,7 @@ from modules.project_selector_3_remove_project import project_selector_3_remove_
 
 def project_selector(headers):
     while True:
-        user_input = input('\n1) Выбрать проект из списка;\n2) Добавить проект\n=>')
+        user_input = input('\n1) Выбрать проект для расчета\n2) Добавить проект\n3) Удалить проект\n=>')
         if user_input == '1':
             site_id = project_selector_1_select_project()
             break
@@ -18,6 +18,7 @@ def project_selector(headers):
             project_selector_3_remove_project(headers)
         
         else:
+            ######
             print('Что-то пошло не так. Попробуйте еще раз или Ctrl+C, чтобы выйти из программы')
 
 

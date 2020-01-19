@@ -105,9 +105,9 @@ def tops_percent_count(ready_df, date_1, date_2, date_3):
     row_of_top_10 = top_10_counter(ready_df)
 
 
-    print('Строка с ТОП-1', row_of_top_1) 
-    print('Строка с ТОП-5', row_of_top_5) 
-    print('Строка с ТОП-10', row_of_top_10)
+    # print('Строка с ТОП-1', row_of_top_1) 
+    # print('Строка с ТОП-5', row_of_top_5) 
+    # print('Строка с ТОП-10', row_of_top_10)
 
     # Добавляем полученные строки в df 
     df_with_stats_of_top.loc['1'] = row_of_top_1 # метод loc вставляет строку по индексу

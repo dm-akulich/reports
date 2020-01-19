@@ -26,11 +26,18 @@ search_engine_name = search_engine_detection_return[1]
 # print('Исторические даты проекта {}'.format(site_id))
 historical_dates = requests.get('https://api4.seranking.com/sites/{}/historicalDates'.format(site_id), headers=headers)
 historical_dates = historical_dates.json()
-last90 = historical_dates['90days']
 current = historical_dates['current']
+while True:
+    try:
+        last90 = historical_dates['90days']
+        site_positions_json = requests.get('https://api4.seranking.com/sites/{}/positions?date_from={}&date_to={}&site_engine_id={}'.format(site_id, last90, current, site_engine_id), headers=headers)
+        break
+    except KeyError:
+        last30 = historical_dates['30days']
+        print('Данных за 90 дней нет, поэтому вот за последние 30')
+        site_positions_json = requests.get('https://api4.seranking.com/sites/{}/positions?date_from={}&date_to={}&site_engine_id={}'.format(site_id, last30, current, site_engine_id), headers=headers)
+        break
 
-
-site_positions_json = requests.get('https://api4.seranking.com/sites/{}/positions?date_from={}&date_to={}&site_engine_id={}'.format(site_id, last90, current, site_engine_id), headers=headers)
 site_positions = site_positions_json.json()
 
 # Парсим нужные колонки

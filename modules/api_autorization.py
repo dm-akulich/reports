@@ -16,6 +16,8 @@ def api_autorization():
             input('Нажиме ENTER, чтобы продолжить.')
             break
         else:
-            x = input('Ошибка авторизации. Нажмите Ctrl+C, чтобы закрыть программу.')
+            api_key = input('Введите API key и нажмите ENTER. Или нажмите Ctrl+C, чтобы закрыть программу.\n=>')
+            f = open(".api_key", "w")
+            f.write(api_key)
 
     return headers
