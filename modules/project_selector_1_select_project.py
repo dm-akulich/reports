@@ -2,7 +2,7 @@ import re
 
 def project_selector_1_select_project():
     # Считываем список проектов из txt файла
-    f = open("project_list.txt", "r")
+    f = open(".project_list", "r")
     list_of_projects = []
     for line in f:
         project = line.split(':')

@@ -17,7 +17,7 @@ from modules.project_selector import project_selector
 
 headers = api_autorization() # Проверка API ключа, авторизация
 
-site_id = project_selector() # Выбор проекта
+site_id = project_selector(headers) # Выбор проекта
 
 search_engine_detection_return = search_engine_detection(site_id, headers) # Выбор поисковых систем, используюемых в проекте
 site_engine_id = search_engine_detection_return[0]
