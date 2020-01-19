@@ -64,5 +64,6 @@ def visibility_percent_count(ready_df, date_1, date_2, date_3, search_engine_nam
     # Добавляем в df
     df_with_stats_of_visibility.loc[1] = [search_engine_name, visibility_for_date_1, visibility_for_date_2, visibility_for_date_3]
 
+    # df_with_stats_of_visibility.to_excel('output-visibility.xlsx')
     
-    return print('Видимость\n', df_with_stats_of_visibility)
+    return df_with_stats_of_visibility

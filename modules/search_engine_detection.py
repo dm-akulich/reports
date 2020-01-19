@@ -25,13 +25,13 @@ def search_engine_detection(site_id, headers):
         search_engine_detection_user_input = input('\nВыберите ПС (вписать цифру): \n1) Google;\n2) Yandex\n=>')
         if search_engine_detection_user_input == '1':
             print('Выбрана ПС Google. Доступные даты загружаются...')
-            search_engine_name = 'Google'
+            search_engine_name = 'google'
             site_engine_id = google_site_engine_id
             break
         elif search_engine_detection_user_input == '2':
             print('Выбрана ПС Yandex. Доступные даты загружаются...')
             site_engine_id = yandex_site_engine_id
-            search_engine_name = 'Yandex'
+            search_engine_name = 'yandex'
             break
         else:
             print('Вы ввели что-то не то. Попробуйте еще раз или нажмите Ctrl+C, чтобы выйти из программы.')

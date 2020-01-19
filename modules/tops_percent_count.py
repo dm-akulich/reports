@@ -116,7 +116,7 @@ def tops_percent_count(ready_df, date_1, date_2, date_3):
     # print(df_with_stats_of_top)
 
     # Сохраняем в xlsx
-    # df_with_stats_of_top = df_with_stats_of_top.to_excel('output-tops.xlsx')
+    # df_with_stats_of_top.to_excel('output-tops.xlsx')
 
 
     return df_with_stats_of_top
